@@ -41,7 +41,7 @@ div.search img {
     width: 30px;
     height: 30px;
     display: block;
-    margin-top: -36px;
+    margin-top: -37px;
     margin-left: 10px;
     cursor: pointer;
     opacity: 0.5;
@@ -51,7 +51,6 @@ div.search img {
 div.search img:hover{
     opacity: 1;
 }
-
 
 div.chapters {
     border-radius: 6px;
@@ -80,28 +79,52 @@ div.chapter-name {
     font-size: 18px;
 }
 
+div.chapter-topic-node>div.sub-chapter-name:after,
+div.chapter-name:after {
+    content: '\25bc';
+    float: right;
+    margin-right: 20px;
+    color: gray;
+}
+
+div.chapter-topic-node.active>div.sub-chapter-name:after,
+div.chapter.active div.chapter-name:after {
+    content: '\25b2';
+}
+
+
 div.chapter-name:hover {
     background-color: rgba(0,0,0,0.05);
 }
 
-div.chapter-topic {
+div.sub-chapter-name {
     padding-left: 45px;
-    transition: 50ms;
+}
+
+div.chapter-topic {
+    transition: 100ms;
     height: 35px;
     line-height: 35px;
     font-size: 14px;
     overflow: hidden;
     opacity: 1;
-    background-color: rgba(0,0,0,0.03);
     cursor: pointer;
 }
 
-div.chapter-topic:hover {
+div.chapter-topic.active{
+    height: 100%;
+}
+
+div.sub-chapter-name {
+    transition: 50ms;
+    background-color: rgba(0,0,0,0.03);
+}
+
+div.sub-chapter-name:hover {
     background-color: rgba(0,0,0,0.07);
 }
 
 div.chapter-topic.invisible {
     height: 0;
-    opacity: 0;
 }
 
