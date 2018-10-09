@@ -1,0 +1,28 @@
+div.search div.search-wrapper {
+    padding-top: 150px;
+    padding-bottom: 150px;
+}
+
+div.search input {
+    width: 100%;
+    display: block;
+    text-indent: 45px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+}
+
+div.search img {
+    width: 30px;
+    height: 30px;
+    display: block;
+    margin-top: -37px;
+    margin-left: 10px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: 200ms;
+}
+
+div.search img:hover{
+    opacity: 1;
+}
