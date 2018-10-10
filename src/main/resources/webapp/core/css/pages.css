@@ -4,23 +4,28 @@ body {
     font-family: Arial, sans-serif;
 }
 
+
 div.content {
     padding-top: 100px;
-    width: calc(100vw - 300px);
-    min-width: 300px;
-    margin-left: 150px;
+    width: calc(100vw - 100px);
+    /*min-width: 300px;*/
+    margin: 0 0 0 50px;
+    background-color: #f2fbc9;
 }
 
 @media (max-width: 600px) {
     div.content {
-        margin-left: calc(50vw - 150px);
+        margin: 0 0 0 10px;
+        width: calc(100vw - 20px);
     }
 }
 
+
 @media (min-width: 1100px) {
     div.content {
+        width: calc(100vw - 200px);
         max-width: 800px;
-        margin-left: calc(50vw - 400px);
+        margin-left: 100px;
     }
 }
 
@@ -88,4 +93,85 @@ div.header {
             0 4px 5px 0 rgba(0, 0, 0, 0.14),
             0 1px 10px 0 rgba(0, 0, 0, 0.12),
             0 2px 4px -1px rgba(0, 0, 0, 0.2);
+}
+
+div.chapters {
+    border-radius: 6px;
+    border: 1px solid lightgray;
+}
+
+div.chapter {
+    border-bottom: 1px solid lightgray;
+}
+
+div.chapter:last-child {
+    border-bottom: 0;
+}
+
+div.chapter.active div.chapter-name {
+    border-bottom: 1px solid lightgray;
+    background-color: rgba(0,0,0,0.1);
+}
+
+div.chapter-name {
+    padding-left: 35px;
+    cursor: pointer;
+    transition: 100ms;
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+}
+
+div.chapter-topic-node>div.sub-chapter-name:after,
+div.chapter-name:after {
+    content: '\25bc';
+    float: right;
+    margin-right: 20px;
+    color: gray;
+}
+
+div.chapter-topic-node.active>div.sub-chapter-name:after,
+div.chapter.active div.chapter-name:after {
+    content: '\25b2';
+}
+
+
+div.chapter-name:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
+div.sub-chapter-name {
+    padding-left: 35px;
+}
+
+div.chapter-topic {
+    transition: 100ms;
+    height: 35px;
+    line-height: 35px;
+    font-size: 14px;
+    overflow: hidden;
+    opacity: 1;
+    cursor: pointer;
+}
+
+div.chapter-topic.active{
+    height: 100%;
+}
+
+div.sub-chapter-name {
+    transition: 50ms;
+    background-color: rgba(0,0,0,0.03);
+}
+
+div.sub-chapter-name:hover {
+    background-color: rgba(0,0,0,0.07);
+}
+
+div.chapter-topic.invisible {
+    height: 0;
+}
+
+.inline {
+    vertical-align: middle;
+    display: inline;
 }
