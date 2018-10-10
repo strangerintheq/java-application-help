@@ -1,6 +1,21 @@
 div.search div.search-wrapper {
     padding-top: 150px;
     padding-bottom: 150px;
+    transition: 100ms;
+}
+
+@media (max-height: 600px)  {
+    div.search div.search-wrapper {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+}
+
+@media (max-height: 500px)  {
+    div.search div.search-wrapper {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
 }
 
 div.search input {
