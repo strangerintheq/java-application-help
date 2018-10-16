@@ -9,6 +9,7 @@ import java.net.InetSocketAddress;
 
 import javax.swing.*;
 
+import com.sun.javafx.webkit.WebConsoleListener;
 import com.sun.net.httpserver.HttpServer;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
@@ -21,7 +22,7 @@ public class EntryPoint {
         int port = 9182;
 
         HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
-        server.createContext("/help/", new StaticHandler("/help", "webapp"));
+        server.createContext("/", new StaticHandler("", "webapp"));
         server.start();
 
         JFXPanel jfxPanel = new JFXPanel();
@@ -42,12 +43,16 @@ public class EntryPoint {
 
         });
 
-        String url = "http://localhost:" + port + "/help/index.html";
+        String url = "http://localhost:" + port + "/core/index.html";
 
         Platform.runLater(() -> {
             WebView webView = new WebView();
             jfxPanel.setScene(new Scene(webView));
             webView.getEngine().load(url);
+
+            WebConsoleListener.setDefaultListener((webVieww, message, lineNumber, sourceId) -> {
+                System.out.println(message + "[at " + lineNumber + "]");
+            });
         });
 
         System.out.println("url = " + url);

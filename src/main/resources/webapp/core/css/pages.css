@@ -10,7 +10,7 @@ div.content {
     width: calc(100vw - 100px);
     /*min-width: 300px;*/
     margin: 0 0 0 50px;
-    background-color: #f2fbc9;
+    /*background-color: #f2fbc9;*/
 }
 
 @media (max-width: 600px) {
@@ -21,11 +21,27 @@ div.content {
 }
 
 
-@media (min-width: 1100px) {
+@media (min-width: 900px) {
     div.content {
-        width: calc(100vw - 200px);
+        width: calc(100vw - 460px);
         max-width: 800px;
-        margin-left: 100px;
+        margin-left: 0;
+        vertical-align: top;
+        display: inline-block;
+    }
+
+
+    div.chapters {
+        vertical-align: top;
+        width: 400px;
+        display: inline-block;
+        margin-top: 100px;
+    }
+}
+
+@media (min-width: 1260px) {
+    div.content {
+        margin-left: calc(50vw - 630px);
     }
 }
 
@@ -95,7 +111,12 @@ div.header {
             0 2px 4px -1px rgba(0, 0, 0, 0.2);
 }
 
+div.chapters  div {
+    margin: 0;
+}
+
 div.chapters {
+
     border-radius: 6px;
     border: 1px solid lightgray;
 }

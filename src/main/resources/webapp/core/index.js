@@ -1,8 +1,8 @@
 var mapDotJhm;
 var helpTocDotXml;
 
-get('../javahelp/map.jhm', processMapDotJhm);
-get('../javahelp/helpTOC.xml', processHelpTocDotXml);
+get('http://localhost:9182/javahelp/map.jhm', processMapDotJhm);
+get('http://localhost:9182/javahelp/helpTOC.xml', processHelpTocDotXml);
 
 function processHelpTocDotXml(data) {
     helpTocDotXml = xmlStringToJson(data);
@@ -15,6 +15,7 @@ function processMapDotJhm(data) {
 }
 
 function prepareMapDotJhm() {
+    console.log(JSON.stringify(mapDotJhm))
     mapDotJhm && mapDotJhm.map && (mapDotJhm = mapDotJhm.map);
     mapDotJhm && (mapDotJhm = mapDotJhm.find(function (el) {
         return el.mapID;
@@ -48,6 +49,7 @@ function collapse(item) {
 }
 
 function init() {
+
     prepareMapDotJhm();
     prepareHelpDotXml();
     createChapters(helpTocDotXml)
